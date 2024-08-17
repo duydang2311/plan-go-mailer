@@ -8,10 +8,11 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/duydang2311/plan-mailer/internal/handlers"
-	"github.com/duydang2311/plan-mailer/internal/mailing"
-	"github.com/duydang2311/plan-mailer/internal/runtime"
-	"github.com/duydang2311/plan-mailer/internal/utils"
+	"plan/internal/handlers"
+	"plan/internal/mailing"
+	"plan/internal/runtime"
+	"plan/internal/utils"
+
 	"github.com/nats-io/nats.go"
 )
 

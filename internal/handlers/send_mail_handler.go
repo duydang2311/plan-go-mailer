@@ -3,7 +3,8 @@ package handlers
 import (
 	"log"
 
-	"github.com/duydang2311/plan-mailer/internal/runtime"
+	"plan/internal/runtime"
+
 	"github.com/goccy/go-json"
 	"github.com/nats-io/nats.go"
 	"github.com/resend/resend-go/v2"

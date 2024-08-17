@@ -1,4 +1,4 @@
-module github.com/duydang2311/plan-mailer
+module plan
 
 go 1.23.0
 
