@@ -18,7 +18,7 @@ type Message struct {
 	Html    string
 }
 
-func SendMailHandler(runtime *runtime.Runtime) (*nats.Subscription, error) {
+func SendMailHandler(runtime runtime.Runtime) (*nats.Subscription, error) {
 	return runtime.Nats.Subscribe("mails.send", func(msg *nats.Msg) {
 		var m Message
 		if err := json.Unmarshal(msg.Data, &m); err != nil {

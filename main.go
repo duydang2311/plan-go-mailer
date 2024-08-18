@@ -58,14 +58,14 @@ outer:
 	defer conn.Close()
 
 	runtime := runtime.Runtime{
-		Context: &context,
+		Context: context,
 		Nats:    conn,
 		Mailer: mailing.NewResend(&mailing.ResendOptions{
 			ApiKey: RESEND_API_KEY,
 		}),
 	}
 
-	sub, err := handlers.SendMailHandler(&runtime)
+	sub, err := handlers.SendMailHandler(runtime)
 	if err != nil {
 		defer sub.Unsubscribe()
 	}

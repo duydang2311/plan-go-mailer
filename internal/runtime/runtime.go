@@ -8,7 +8,7 @@ import (
 )
 
 type Runtime struct {
-	Context *context.Context
+	Context context.Context
 	Nats    *nats.Conn
 	Mailer  *resend.Client
 }
