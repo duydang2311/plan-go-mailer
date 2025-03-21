@@ -6,7 +6,6 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"time"
 
 	"plan/internal/handlers"
 	"plan/internal/mailing"
@@ -36,21 +35,15 @@ func main() {
 
 	var conn *nats.Conn
 	var err error
-outer:
-	for {
-		select {
-		case <-quit:
-			return
-		default:
-			conn, err = nats.Connect(NATS_URL, nats.UserInfo(NATS_USER, NATS_PASSWORD))
 
-			if err != nil {
-				log.Println(err)
-				log.Println("retrying...")
-				time.Sleep(time.Second)
-			} else {
-				break outer
-			}
+	select {
+	case <-quit:
+		return
+	default:
+		conn, err = nats.Connect(NATS_URL, nats.UserInfo(NATS_USER, NATS_PASSWORD))
+
+		if err != nil {
+			log.Fatal(err)
 		}
 	}
 
