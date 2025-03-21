@@ -7,10 +7,12 @@ COPY go.mod go.sum ./
 RUN go mod download && go mod verify
 
 COPY . .
-RUN go build -v -o /app
+# RUN go build -v -o /app
 
-FROM scratch
+# FROM scratch
 
-COPY --from=build /app /app
+# COPY --from=build /app /app
 
-CMD ["/app"]
+# CMD ["/app"]
+
+CMD ["go run main.go"]
