@@ -1,6 +1,6 @@
-FROM golang:1.23-alpine as build
+FROM golang:alpine AS build
 
-WORKDIR /src
+WORKDIR /app
 
 # pre-copy/cache go.mod for pre-downloading dependencies and only redownloading them in subsequent builds if they change
 COPY go.mod go.sum ./
@@ -15,4 +15,9 @@ COPY . .
 
 # CMD ["/app"]
 
-CMD ["go run main.go"]
+ENV RESEND_API_KEY=
+ENV NATS_URL=
+ENV NATS_USER=
+ENV NATS_PASSWORD=
+
+CMD ["go", "run", "main.go"]
